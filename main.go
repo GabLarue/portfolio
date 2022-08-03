@@ -20,6 +20,12 @@ var p = []Project{
 		Client: "Project 1 Client",
 		Tags:   []string{"Tag1, Tag2, Tag3"},
 	},
+	{
+		ID:     "2",
+		Title:  "Project 2",
+		Client: "Project 2 Client",
+		Tags:   []string{"Tag6, Tag3, Tag5"},
+	},
 }
 
 func getAllProjects(c echo.Context) error {
