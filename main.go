@@ -29,6 +29,7 @@ var p = []Project{
 }
 
 func getAllProjects(c echo.Context) error {
+	c.Response().Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	return c.JSON(http.StatusOK, p)
 }
 
@@ -42,14 +43,16 @@ func getProjectByID(c echo.Context) error {
 		}
 	}
 
+	c.Response().Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	return c.JSON(http.StatusOK, response)
 }
 
 func main() {
 	e := echo.New()
+	//TODO Implement https://echo.labstack.com/middleware/cors/
 
 	e.GET("/projects", getAllProjects)
 	e.GET("/projects/:id", getProjectByID)
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":8080"))
 }

@@ -1,4 +1,4 @@
-module portfolio-carousel
+module portfolio
 
 go 1.18
 
