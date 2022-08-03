@@ -1,17 +1,49 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
-type project struct {
-	ID       string   `json:"id"`
-	Title    string   `json:"title"`
-	Client   string   `json:"client"`
-	ImageURL string   `json:"image_url"`
-	Tags     []string `json:"tags"`
+type Project struct {
+	ID     string   `json:"id"`
+	Title  string   `json:"title"`
+	Client string   `json:"client"`
+	Tags   []string `json:"tags"`
+}
+
+var p = []Project{
+	{
+		ID:     "1",
+		Title:  "Project 1",
+		Client: "Project 1 Client",
+		Tags:   []string{"Tag1, Tag2, Tag3"},
+	},
+}
+
+func getAllProjects(c echo.Context) error {
+	return c.JSON(http.StatusOK, p)
+}
+
+func getProjectByID(c echo.Context) error {
+	id := c.Param("id")
+	var response Project
+
+	for _, project := range p {
+		if project.ID == id {
+			response = project
+		}
+	}
+
+	return c.JSON(http.StatusOK, response)
 }
 
 func main() {
-	fmt.Println("Hello")
+	e := echo.New()
+
+	e.GET("/projects", getAllProjects)
+	e.GET("/projects/:id", getProjectByID)
+
+	e.Logger.Fatal(e.Start(":1323"))
 }
