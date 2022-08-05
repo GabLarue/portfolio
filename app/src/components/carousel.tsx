@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Project from '../types/project.ts'
 import ProjectCard from './projectCard.tsx'
+import { ReactComponent as ArrowLeft } from '../assets/icons/arrow-left.svg'
+import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 
 type CarouselProps = {
     projects: Project[];
@@ -43,9 +45,9 @@ const Carousel = ({projects}: CarouselProps) => {
 
     return (
         <div className='carousel'>
-            <button className={'navigation-arrow'} onClick={handlePrevious} disabled={!canPrevious}>⬅️</button>
+            <button className={`navigation-arrow ${!canPrevious && 'disabled'}`} onClick={handlePrevious} disabled={!canPrevious}><ArrowLeft/></button>
             <ProjectCard project={projects[selectedProject]} />
-            <button className={'navigation-arrow'} onClick={handleNext} disabled={!canNext}>➡️</button>
+            <button className={`navigation-arrow ${!canNext && 'disabled'}`} onClick={handleNext} disabled={!canNext}><ArrowRight /></button>
         </div>
     )
 }

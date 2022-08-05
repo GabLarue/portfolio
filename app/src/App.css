@@ -4,6 +4,8 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #0D0D0D;
+  font-size: 18px;
+  font-family: 'Inter';
 }
 
 .project-card {
@@ -12,12 +14,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: #FFFFFF;
-  gap: 0.5rem;
-}
-
-.project-name {
-  font-size: 18px;
-  font-weight: 500;
+  gap: 8px;
 }
 
 .client-name {
@@ -130,11 +127,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 64px;
 }
 
 .navigation-arrow {
   font-size: 24px;
   background: none;
   border: none;
+}
+
+.navigation-arrow.disabled {
+  opacity: 0.5;
 }

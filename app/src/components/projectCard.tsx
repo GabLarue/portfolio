@@ -8,7 +8,7 @@ type ProjectCardPropr = {
 const ProjectCard = ({project}: ProjectCardPropr) => {
     return(
         <div className='project-card'>
-            <span className='project-name'>{project.title}</span>
+            <span className='project-name'><b>{project.title}</b></span>
             <span className='client-name'>{project.client}</span>
             <ProjectTags tags={project.tags}/>
         </div>
