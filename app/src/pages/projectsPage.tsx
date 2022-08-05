@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import ProjectCard from '../components/projectCard.tsx'
+import Loader from '../components/loader.tsx'
 
 const http = axios.create({
     baseURL: "http://localhost:8080",
@@ -24,18 +25,16 @@ const ProjectsPage = () => {
         } 
     })
 
-    if (projects.length > 0) {
-        return (
-            <div className='project-cards-container'>
-                {projects.map(p => <ProjectCard project={p} />)}
-            </div>
-        )
-    }
+    // if (projects.length > 0) {
+    //     return (
+    //         <div className='project-cards-container'>
+    //             {projects.map(p => <ProjectCard project={p} />)}
+    //         </div>
+    //     )
+    // }
 
     return (
-        <div>
-            <span>Projects are being fetch ...</span>
-        </div>
+        <Loader/>
     )
 }
 
