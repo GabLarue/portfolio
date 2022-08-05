@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/labstack/echo/v4"
 )
@@ -29,6 +30,9 @@ var p = []Project{
 }
 
 func getAllProjects(c echo.Context) error {
+	//ADD 2 second wait time to display loading state
+	time.Sleep(2 * time.Second)
+
 	c.Response().Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	return c.JSON(http.StatusOK, p)
 }
@@ -42,6 +46,9 @@ func getProjectByID(c echo.Context) error {
 			response = project
 		}
 	}
+
+	//ADD 2 second wait time to display loading state
+	time.Sleep(2 * time.Second)
 
 	c.Response().Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	return c.JSON(http.StatusOK, response)
