@@ -54,7 +54,6 @@ body {
   overflow-x: scroll;
 }
 
-
 /*LOADER*/
 @keyframes rotate {
   100% { 
@@ -89,7 +88,6 @@ body {
   width: 18px;
   border-radius: 16px;
   background-color:#2CFFCC;
-  filter:blur(2px);
 }
 
 .loader > .first {

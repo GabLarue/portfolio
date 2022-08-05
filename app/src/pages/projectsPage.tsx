@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import ProjectCard from '../components/projectCard.tsx'
 import Loader from '../components/loader.tsx'
+import Carousel  from '../components/carousel.tsx'
+import Project from '../types/project.ts'
 
 const http = axios.create({
     baseURL: "http://localhost:8080",
@@ -27,9 +29,10 @@ const ProjectsPage = () => {
 
     if (projects.length > 0) {
         return (
-            <div className='project-cards-container'>
-                {projects.map(p => <ProjectCard project={p} />)}
-            </div>
+            <Carousel projects={projects}/>
+            // <div className='project-cards-container'>
+            //     {projects.map(p => <ProjectCard project={p} />)}
+            // </div>
         )
     }
 
