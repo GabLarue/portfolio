@@ -15,6 +15,16 @@ body {
   gap: 0.5rem;
 }
 
+.project-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.client-name {
+  font-size: 16px;
+  font-weight: 300;
+}
+
 .project-tags-container {
   display: flex;
   gap: 0.5rem;
@@ -113,4 +123,18 @@ body {
   left: 0px;
   bottom: 0px;
   animation: blink 2s infinite;
+}
+
+/*CAROUSEL*/
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.navigation-arrow {
+  font-size: 24px;
+  background: none;
+  border: none;
 }

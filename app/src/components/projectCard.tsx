@@ -8,10 +8,8 @@ type ProjectCardPropr = {
 const ProjectCard = ({project}: ProjectCardPropr) => {
     return(
         <div className='project-card'>
-            <div className='project-image-container'>
-            </div>
-            <span>{project.id}</span>
-            <span>{project.title}</span>
+            <span className='project-name'>{project.title}</span>
+            <span className='client-name'>{project.client}</span>
             <ProjectTags tags={project.tags}/>
         </div>
     )

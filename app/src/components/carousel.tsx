@@ -43,9 +43,9 @@ const Carousel = ({projects}: CarouselProps) => {
 
     return (
         <div className='carousel'>
+            <button className={'navigation-arrow'} onClick={handlePrevious} disabled={!canPrevious}>⬅️</button>
             <ProjectCard project={projects[selectedProject]} />
-            <button onClick={handlePrevious} disabled={!canPrevious}>PREVIOUS</button>
-            <button onClick={handleNext} disabled={!canNext}>NEXT</button>
+            <button className={'navigation-arrow'} onClick={handleNext} disabled={!canNext}>➡️</button>
         </div>
     )
 }
