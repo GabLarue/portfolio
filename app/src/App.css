@@ -10,7 +10,9 @@ body {
 
 .project-card {
   display: flex;
-  justify-content: start;
+  width: 30vw;
+  height: 0vh;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #FFFFFF;
@@ -38,12 +40,12 @@ body {
 }
 
 .project-tags-container > .project-tag {
-  background-color: #E7FD2C;
+  background-color: #2CFFCC;
   color: #0D0D0D;
 }
 
 .project-tags-container > .project-tag:nth-child(2n+2) {
-  background-color: #2CFFCC;
+  background-color: #E7FD2C;
   color: #0D0D0D;
 }
 
