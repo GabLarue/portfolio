@@ -19,13 +19,13 @@ var p = []Project{
 		ID:     "1",
 		Title:  "Project 1",
 		Client: "Project 1 Client",
-		Tags:   []string{"Tag1, Tag2, Tag3"},
+		Tags:   []string{"Tag1", "Tag2", "Tag3"},
 	},
 	{
 		ID:     "2",
 		Title:  "Project 2",
 		Client: "Project 2 Client",
-		Tags:   []string{"Tag6, Tag3, Tag5"},
+		Tags:   []string{"Tag6", "Tag3", "Tag5"},
 	},
 }
 
@@ -38,6 +38,9 @@ func getAllProjects(c echo.Context) error {
 }
 
 func getProjectByID(c echo.Context) error {
+	//ADD 2 second wait time to display loading state
+	time.Sleep(2 * time.Second)
+
 	id := c.Param("id")
 	var response Project
 
@@ -46,9 +49,6 @@ func getProjectByID(c echo.Context) error {
 			response = project
 		}
 	}
-
-	//ADD 2 second wait time to display loading state
-	time.Sleep(2 * time.Second)
 
 	c.Response().Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	return c.JSON(http.StatusOK, response)

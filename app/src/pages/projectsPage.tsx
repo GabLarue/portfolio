@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import ProjectCard from '../components/projectCard.tsx'
 
 const http = axios.create({
     baseURL: "http://localhost:8080",
@@ -7,13 +8,6 @@ const http = axios.create({
         "Content-type":"application/json"
     }
 })
-
-interface Project {
-    id:string,
-    title:string,
-    client:string,
-    tags: string[]
-}
 
 const ProjectsPage = () => {
     const [ projects, setProjects ] = useState<Project[]>([])
@@ -31,7 +25,11 @@ const ProjectsPage = () => {
     })
 
     if (projects.length > 0) {
-        return projects.map(p => <span key={p.id}>{p.title}</span>) 
+        return (
+            <div className='project-cards-container'>
+                {projects.map(p => <ProjectCard project={p} />)}
+            </div>
+        )
     }
 
     return (
