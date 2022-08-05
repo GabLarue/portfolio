@@ -25,13 +25,13 @@ const ProjectsPage = () => {
         } 
     })
 
-    // if (projects.length > 0) {
-    //     return (
-    //         <div className='project-cards-container'>
-    //             {projects.map(p => <ProjectCard project={p} />)}
-    //         </div>
-    //     )
-    // }
+    if (projects.length > 0) {
+        return (
+            <div className='project-cards-container'>
+                {projects.map(p => <ProjectCard project={p} />)}
+            </div>
+        )
+    }
 
     return (
         <Loader/>
