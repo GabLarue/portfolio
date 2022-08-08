@@ -8,6 +8,61 @@ body {
   font-family: 'Inter';
 }
 
+#root {
+  z-index: 1;
+}
+
+/* GRADIENT BACKGROUND */
+@keyframes background-animation {
+  50% {
+    transform: translate3d(30px, 10px, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes background-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#background-gradient {
+  z-index: 0;
+  opacity: 0.6;
+}
+
+#background-gradient > div{
+  background-color: #2CFFCC;
+  position: absolute;
+  height: 15%;
+  width: 13%;
+  filter: blur(400px);
+  animation: background-animation 8s infinite;
+  animation-timing-function: flat;
+}
+
+#background-gradient > .first{
+  animation-delay: 3.5s;
+  left: 45vw;
+  top: 35vh;
+}
+
+#background-gradient > .second{
+  animation-delay: 2s;
+  left: 30vw;
+  bottom: 40vh;
+}
+
+#background-gradient > .third{
+  right: 40vw;
+  top: 60vh;
+}
+
 .project-card {
   display: flex;
   width: 30vw;
@@ -34,8 +89,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 1rem;
-  padding: 0.1rem 1rem;
-  font-weight: 500;
+  padding: 4px 16px;
+  font-weight: 600;
   font-size: 16px;
 }
 
