@@ -45,9 +45,18 @@ const Carousel = ({projects}: CarouselProps) => {
 
     return (
         <div className='carousel'>
-            <button className={`navigation-arrow ${!canPrevious && 'disabled'}`} onClick={handlePrevious} disabled={!canPrevious}><ArrowLeft/></button>
-            <ProjectCard project={projects[selectedProject]} />
-            <button className={`navigation-arrow ${!canNext && 'disabled'}`} onClick={handleNext} disabled={!canNext}><ArrowRight /></button>
+            <div className='project-images-container'>
+                <img className='project-image terciary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                <img className='project-image secondary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                <img className='project-image selected' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                <img className='project-image secondary right' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                <img className='project-image terciary right' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+            </div>
+            <div className='project-info-container'>
+                <button className={`navigation-arrow ${!canPrevious && 'disabled'}`} onClick={handlePrevious} disabled={!canPrevious}><ArrowLeft/></button>
+                <ProjectCard project={projects[selectedProject]} />
+                <button className={`navigation-arrow ${!canNext && 'disabled'}`} onClick={handleNext} disabled={!canNext}><ArrowRight /></button>
+            </div>
         </div>
     )
 }
