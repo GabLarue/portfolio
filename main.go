@@ -17,15 +17,15 @@ type Project struct {
 var p = []Project{
 	{
 		ID:     "1",
-		Title:  "Project 1",
-		Client: "Project 1 Client",
-		Tags:   []string{"Tag1", "Tag2", "Tag3"},
+		Title:  "Todd.LY",
+		Client: "Design & Implementation",
+		Tags:   []string{"React.js", "Typescript", "Golang"},
 	},
 	{
 		ID:     "2",
-		Title:  "Project 2",
-		Client: "Project 2 Client",
-		Tags:   []string{"Tag6", "Tag3", "Tag5"},
+		Title:  "Fitt.",
+		Client: "Design",
+		Tags:   []string{"Node.js", "React.js", "Typescript"},
 	},
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import ProjectTags from './projectTags.tsx'
 
-type ProjectCardPropr = {
+type ProjectCardProp = {
     project: Project
 }
 
-const ProjectCard = ({project}: ProjectCardPropr) => {
+const ProjectCard = ({project}: ProjectCardProp) => {
     return(
         <div className='project-card'>
             <span className='project-name'><b>{project.title}</b></span>
