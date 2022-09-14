@@ -44,7 +44,7 @@ const Carousel = ({projects}: CarouselProps) => {
     }, [selectedProject])
 
     return (
-        <div className='carousel'>
+        <div className='carousel bg-black'>
             <div className='project-images-container'>
                 <img className='project-image terciary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
                 <img className='project-image secondary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
