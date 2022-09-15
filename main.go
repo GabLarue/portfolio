@@ -8,24 +8,27 @@ import (
 )
 
 type Project struct {
-	ID     string   `json:"id"`
-	Title  string   `json:"title"`
-	Client string   `json:"client"`
-	Tags   []string `json:"tags"`
+	ID       string   `json:"id"`
+	Title    string   `json:"title"`
+	Client   string   `json:"client"`
+	Tags     []string `json:"tags"`
+	ImageURL string   `json:image_url`
 }
 
 var p = []Project{
 	{
-		ID:     "1",
-		Title:  "Todd.LY",
-		Client: "Design & Implementation",
-		Tags:   []string{"React.js", "Typescript", "Golang"},
+		ID:       "1",
+		Title:    "Todd.LY",
+		Client:   "Design & Implementation",
+		Tags:     []string{"React.js", "Typescript", "Golang"},
+		ImageURL: "https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960",
 	},
 	{
-		ID:     "2",
-		Title:  "Fitt.",
-		Client: "Design",
-		Tags:   []string{"Node.js", "React.js", "Typescript"},
+		ID:       "2",
+		Title:    "Fitt.",
+		Client:   "Design",
+		Tags:     []string{"Node.js", "React.js", "Typescript"},
+		ImageURL: "https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960",
 	},
 }
 

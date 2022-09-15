@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import Project from '../types/project.ts'
-import ProjectCard from './projectCard.tsx'
 import { ReactComponent as ArrowLeft } from '../assets/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
+import { AnimatePresence, motion } from 'framer-motion';
 
 type CarouselProps = {
     projects: Project[];
 }
 
-const Carousel = ({projects}: CarouselProps) => {
+const Carousel = ({ projects }: CarouselProps) => {
     const [selectedProject, setSelectedProject] = useState<number>(0)
     const [canNext, setCanNext] = useState<boolean>(projects.length > 1)
     const [canPrevious, setCanPrevious] = useState<boolean>(false)
 
     const handleNext = () => {
-        if (selectedProject < projects.length -1) {
+        if (selectedProject < projects.length - 1) {
             setSelectedProject(selectedProject + 1)
         }
     }
@@ -28,13 +27,13 @@ const Carousel = ({projects}: CarouselProps) => {
     }
 
     useEffect(() => {
-        if (selectedProject >= projects.length -1) {
+        if (selectedProject >= projects.length - 1) {
             setCanNext(false)
         } else {
             setCanNext(true)
         }
 
-        if (selectedProject <= 0) { 
+        if (selectedProject <= 0) {
             setCanPrevious(false)
         } else {
             setCanPrevious(true)
@@ -44,20 +43,28 @@ const Carousel = ({projects}: CarouselProps) => {
     }, [selectedProject])
 
     return (
-        <div className='carousel bg-black'>
-            <div className='project-images-container'>
-                <img className='project-image terciary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
-                <img className='project-image secondary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
-                <img className='project-image selected' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
-                <img className='project-image secondary right' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
-                <img className='project-image terciary right' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
-            </div>
-            <div className='project-info-container'>
-                <button className={`navigation-arrow ${!canPrevious && 'disabled'}`} onClick={handlePrevious} disabled={!canPrevious}><ArrowLeft/></button>
-                <ProjectCard project={projects[selectedProject]} />
-                <button className={`navigation-arrow ${!canNext && 'disabled'}`} onClick={handleNext} disabled={!canNext}><ArrowRight /></button>
-            </div>
-        </div>
+        <AnimatePresence>
+            <motion.div
+                transition={{
+                    duration: 1,
+                    type: "easeInOut"
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                <div className='carousel h-screen w-screen justify-center items-center'>
+                    <div className='flex flex-row gap-1'>
+                        <motion.div className='h-[200px] w-[400px]'>
+                            <img className='project-image terciary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                        </motion.div>
+                        <motion.div className='h-[200px] w-[400px]'>
+                            <img className='project-image terciary left' src="https://imageio.forbes.com/specials-images/imageserve/608b2c043bf4a70fd3a674dc/Google-HDR--with-Bracketing-example-/0x0.jpg?format=jpg&crop=2482,1397,x0,y221,safe&width=960" />
+                        </motion.div>
+                    </div>
+                </div>
+            </motion.div>
+        </AnimatePresence>
     )
 }
 
