@@ -3,7 +3,7 @@ import axios from 'axios'
 import Loader from '../components/loader.tsx'
 import Carousel from '../components/carousel.tsx'
 import Project from '../types/project.ts'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 
 const http = axios.create({
     baseURL: "http://localhost:8080",
@@ -27,15 +27,12 @@ const ProjectsPage = () => {
         }
     })
 
-    if (projects.length > 0) {
-        return (
-            <Carousel projects={projects} />
-        )
-    }
-
     return (
-
-        <Loader />
+        <>
+            <AnimatePresence>
+                {projects.length > 0 ? <Carousel key={"carousel"} projects={projects} /> : <Loader key={"loader"} />}
+            </AnimatePresence>
+        </>
     )
 }
 
